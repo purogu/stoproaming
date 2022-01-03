@@ -4,6 +4,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @Mod(StopRoaming.ID)
@@ -16,7 +17,7 @@ public class StopRoaming
     }
 
     @SubscribeEvent
-    public static void onLoad(ModConfig.Loading event) {
+    public static void onLoad(ModConfigEvent.Loading event) {
         if(event.getConfig().getModId().equals(StopRoaming.ID)) {
             GoalRemoval.init(Config.SERVER.entitiesToStop.get());
         }
